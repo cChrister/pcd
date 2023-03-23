@@ -1,0 +1,15 @@
+bag/
+bed/
+bin/
+box/
+cabinet/
+chair/
+desk/
+display/
+door/
+pillow/
+shelf/
+sink/
+sofa/
+table/
+toilet/
