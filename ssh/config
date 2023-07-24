@@ -1,0 +1,53 @@
+# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+# ssh -o ProxyCommand=\"ssh -W %h:%p -p 2208 -i ~/.ssh/ben_jump/id_rsa -p 2208 ben@47.99.32.69\" -i  ~/.ssh/chenxiang_107/id_rsa chenxiang@192.168.1.107
+# ssh -i ~/.ssh/chenxiang_107/id_rsa -p 2207 chenxiang@10.25.2.189
+
+Host IIPL.112
+    HostName 192.168.1.112
+    User chenxiang
+    IdentityFile ~/.ssh/chenxiang_112/id_rsa
+    ProxyCommand ssh -W %h:%p -p 2208 -i ~/.ssh/ben_jump/slam_id_rsa -p 2208 slam@39.105.148.170
+
+Host IIPL.in112
+    HostName 10.25.2.189
+    IdentityFile ~/.ssh/chenxiang_112/id_rsa
+    Port 2212
+    User chenxiang
+
+Host IIPL.101
+    HostName 192.168.1.101
+    User chenxiang
+    IdentityFile ~/.ssh/chenxiang_101/id_rsa
+    ProxyCommand ssh -W %h:%p -p 2208 -i ~/.ssh/ben_jump/slam_id_rsa -p 2208 slam@39.105.148.170
+
+Host IIPL.in101
+    HostName 10.25.2.189
+    IdentityFile ~/.ssh/chenxiang_101/id_rsa
+    Port 2201
+    User chenxiang
+
+Host IIPL.156
+    HostName 192.168.1.156
+    User chenxiang
+    IdentityFile ~/.ssh/chenxiang_156/chenxiang_156
+    ProxyCommand ssh -W %h:%p -p 2208 -i ~/.ssh/ben_jump/slam_id_rsa -p 2208 slam@39.105.148.170
+
+Host IIPL.in156
+    HostName 10.25.2.189
+    IdentityFile ~/.ssh/chenxiang_156/chenxiang_156
+    Port 2256
+    User chenxiang
+
+Host my4080
+    HostName 10.25.2.170
+    IdentityFile ~/.ssh/hu/id_rsa
+    User canvas
+
+Host github.com *github.com
+#    User git
+#    Port 22
+    HostName github.com
+    ServerAliveInterval 120
+    IdentityFile ~/.ssh/github/github
+    ProxyCommand nc -X 5 -x 192.168.1.108:7891 %h %p
+
